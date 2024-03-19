@@ -11,16 +11,16 @@ export const authConfig = {
             
             // -------------------
             // bypass logging in functionality for now
-            // if (isOnDashboard) {
-            //     if (isLoggedIn) return true;
-            //     return false; // Redirect unauthenticated users to login page
-            // } else if (isLoggedIn) {
-            //     return Response.redirect(new URL('/dashboard', nextUrl));
-            // }
-            // return true;
-            // --------------------
-            if (!isOnDashboard) {return Response.redirect(new URL('/dashboard', nextUrl));}
+            if (isOnDashboard) {
+                if (isLoggedIn) return true;
+                return false; // Redirect unauthenticated users to login page
+            } else if (isLoggedIn) {
+                return Response.redirect(new URL('/dashboard', nextUrl));
+            }
             return true;
+            // --------------------
+            // if (!isOnDashboard) {return Response.redirect(new URL('/dashboard', nextUrl));}
+            // return true;
         },
     },
     providers: [], // Add providers with an empty array for now
